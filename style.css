@@ -1,0 +1,56 @@
+html{
+    height: 100%;
+}
+
+body{
+
+    margin: 0;
+    padding: 0;
+    background-image: -webkit-linear-gradient(#546E7A,#1E2D42);
+    min-width: 100vh;
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#chord-name-container{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    margin-top: 40px;
+}
+
+#chord-name-tag{
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+}
+
+#key-grid-container{
+
+    margin-top: 100px;
+    padding: 0 48px;
+
+}
+
+
+#key-grid{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+.key{
+    flex-grow: 1;
+    height:300px;
+    background: #AFDFFF;
+    margin: 0 4px; 
+    border-radius: 10px;
+}
+
+
+
