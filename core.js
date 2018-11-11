@@ -4,8 +4,12 @@ let mKeyGrid;
 
 let mChromaticScale = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 
+
+
+
 let aHm = ['a','b','c','d','e','f','g#'];
 let dHm = ['d','e','f','g','a','bb','c#']
+let bM = ['b','c#','d#','e','f#','g#','a#']
 // find index of root note
 // assign the grid to that eq scale
 
@@ -20,10 +24,36 @@ function getGridMapFromScale(scale){
     console.log("Delta:" +delta);
     let initialIndex = scaleSize - delta;
     let newScale = [];
-    let octave = 3;
+    
 
-    for(let i = 0; i < 20; i++){
-        newScale[(8+i)%14]  = scale[(i-1)%7];
+    for(let i = 0; i < 13; i++){
+        newScale[(chromaticIndex+i)%14]  = scale[(i)%7];
+    }
+
+    let alphabet = [];
+
+    newScale.forEach(note=>{
+        alphabet.push(note.charAt(0));
+    })
+    console.log(newScale)
+    console.log("Alpha: "+alphabet);
+
+
+    let octave = 2;
+    let order = ['c','d','e','f','g','a','b']
+    newScale[0] = newScale[0]+octave;
+    for(let i = 1; i<newScale.length; i++){
+        
+        let currentindex = order.indexOf(alphabet[i])
+        let previousindex = order.indexOf(alphabet[i-1])
+        
+        newScale[i] = newScale[i]+octave;
+        if(currentindex<previousindex){
+            console.log(newScale[i]+" reached next octave")
+            octave++;
+        }
+
+
     }
 
 
@@ -76,7 +106,7 @@ $(document).ready(function(){
     mKeyGrid = $("#key-grid");
     
 
-    getGridMapFromScale(dHm);
+    getGridMapFromScale(bM);
 
 
 
