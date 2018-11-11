@@ -61,7 +61,7 @@ $(document).ready(function(){
         "B4":"B4.wav",
     },null,"sound/").toMaster();
 
-    mPiano.volume.value = -6;
+    mPiano.volume.value = -13;
 
 
 
