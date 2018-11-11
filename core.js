@@ -7,9 +7,9 @@ let mChromaticScale = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 
 
 
-let aHm = ['a','b','c','d','e','f','g#'];
-let dHm = ['d','e','f','g','a','bb','c#']
-let bM = ['b','c#','d#','e','f#','g#','a#']
+let aHm = ['A','B','C','D','E','F','G#'];
+let dHm = ['D','E','F','G','A','Bb','C#']
+let bM = ['B','C#','D#','E','F#','G#','A#']
 // find index of root note
 // assign the grid to that eq scale
 
@@ -26,7 +26,7 @@ function getGridMapFromScale(scale){
     let newScale = [];
     
 
-    for(let i = 0; i < 13; i++){
+    for(let i = 0; i < 20; i++){
         newScale[(chromaticIndex+i)%14]  = scale[(i)%7];
     }
 
@@ -106,7 +106,7 @@ $(document).ready(function(){
     mKeyGrid = $("#key-grid");
     
 
-    getGridMapFromScale(bM);
+    getGridMapFromScale(aHm);
 
 
 
