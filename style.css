@@ -53,4 +53,23 @@ body{
 }
 
 
+.key-pressed{
+    flex-grow: 1;
+    height:300px;
+    background: #AFDFFF;
+    margin: 0 4px; 
+    border-radius: 10px;
+    background-color: #7597AC;
+}
+
+.key-hinted{
+    flex-grow: 1;
+    height:300px;
+    background: #AFDFFF;
+    margin: 0 4px; 
+    border-radius: 10px;
+    background-color: #48B890;
+}
+
+
 
