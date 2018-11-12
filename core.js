@@ -225,11 +225,26 @@ function touchStartedHandler(ev){
   ev.preventDefault();
   console.log(`Touch Start ID: ${ev.target.id}`);
 
-  let id = ev.target.id;
-  let keyNumber  = id.split("-")[1];
-  let note = mMasterKeyScale[keyNumber-1];
-  console.log(`touch note to be played ${note}`);
-  mPiano.triggerAttackRelease(note,"2n");
+
+
+
+  let touches = ev.changedTouches;
+  console.log("Changed touches "+touches.length);
+
+
+  for(let i =0; i<touches.length; i++){
+  
+    let id = touches[i].target.id;
+    let keyNumber  = id.split("-")[1];
+    let note = mMasterKeyScale[keyNumber-1];
+    console.log(`touch note to be played ${note}`);
+    mPiano.triggerAttackRelease(note,"2n");
+
+  }
+  
+
+  
+  
 
 
 }
