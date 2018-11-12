@@ -200,8 +200,11 @@ function registerMultitouchHandlers(){
 
   console.log("Registering touch start");
 
-    setMultitouchEventHandler("#key-1");
-    setMultitouchEventHandler("#key-2");
+  for(let i = 1; i<15;i++){
+    setMultitouchEventHandler("#key-"+i);
+  }
+    
+    
 
 }
 
@@ -210,15 +213,25 @@ function registerMultitouchHandlers(){
 function setMultitouchEventHandler(id){
 
   console.log("SetMutituoch para: "+id);
-  $(id).on('touchstart', touchHandler);
+  $(id).on('touchstart', touchStartedHandler);
+  
+
 
 }
 
 
-function touchHandler(ev){
+function touchStartedHandler(ev){
 
-  // ev.preventDefault();
-  console.log("Touch Start: "+JSON.stringify(ev));
+  ev.preventDefault();
+  console.log(`Touch Start ID: ${ev.target.id}`);
+
+  let id = ev.target.id;
+  let keyNumber  = id.split("-")[1];
+  let note = mMasterKeyScale[keyNumber-1];
+  console.log(`touch note to be played ${note}`);
+  mPiano.triggerAttackRelease(note,"2n");
+
+
 }
 
 
