@@ -24,9 +24,8 @@ let mScaleSequence;
 let mChordSequence;
 
 
-
-
-
+let mLogEvents = false;
+let mTpCache = new Array();
 
 
 
@@ -73,6 +72,8 @@ $(document).ready(function(){
     // getGridMapFromScale(dHm);
     // getGridMapFromScale(bM);
     initializeSequences();
+
+    registerMultitouchHandlers();
 
 
 
@@ -190,3 +191,45 @@ function stop(){
   mScaleSequence.stop();
   mChordSequence.stop();
 }
+
+
+
+
+function registerMultitouchHandlers(){
+
+
+  console.log("Registering touch start");
+
+    setMultitouchEventHandler("#key-1");
+    setMultitouchEventHandler("#key-2");
+
+}
+
+
+
+function setMultitouchEventHandler(id){
+
+  console.log("SetMutituoch para: "+id);
+  $(id).on('touchstart', touchHandler);
+
+}
+
+
+function touchHandler(ev){
+
+  // ev.preventDefault();
+  console.log("Touch Start: "+JSON.stringify(ev));
+}
+
+
+
+var findCurrentTouchIndex = function (id) {
+  for (var i=0; i < currentTouches.length; i++) {
+      if (currentTouches[i].id === id) {
+          return i;
+      }
+  }
+
+  // Touch not found! Return -1.
+  return -1;
+};
