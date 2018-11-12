@@ -16,7 +16,7 @@ let bM = ['b','c#','d#','e','f#','g#','a#']
 // assign the grid to that eq scale
 
 
-let mPlayer = new Tone.Player("sound/Manha De Carnaval (Black Orpheus) Rhodes.wav").toMaster()
+let mPlayer = new Tone.Player("sound/Manha De Carnaval (Black Orpheus) Rhodes.mp3").toMaster()
 
 
 
